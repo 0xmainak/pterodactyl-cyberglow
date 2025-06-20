@@ -1,11 +1,3 @@
-{{-- 
-    Pterodactyl Neon Theme - Base Layout
-    Created: June 21, 2025
-    
-    This layout extends Pterodactyl's default layout and includes the neon.css theme file.
-    It preserves all the original functionality while adding the custom neon styling.
---}}
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,15 +7,11 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {{-- Base Pterodactyl Stylesheets --}}
         @section('scripts')
             {!! Assets::css() !!}
         @show
 
-        {{-- Import Poppins font from Google Fonts --}}
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        
-        {{-- Import Neon Theme CSS file --}}
         <link rel="stylesheet" href="/themes/neon.css">
 
         @yield('css')
