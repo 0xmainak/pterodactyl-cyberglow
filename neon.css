@@ -1,0 +1,333 @@
+/* Neon Theme for Pterodactyl Panel
+ * Created: June 21, 2025
+ * 
+ * This theme gives Pterodactyl a vibrant neon look with glowing elements
+ * on a dark background.
+ */
+
+/* Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Base styles - Set body and all text to Poppins, background to black */
+body {
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #000000 !important;
+    color: #39ff14 !important; /* Neon green text */
+}
+
+/* Apply Poppins font to all text elements */
+* {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+    color: #39ff14 !important; /* Neon green text */
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.7) !important; /* Subtle glow effect */
+}
+
+/* Link styles */
+a {
+    color: #00ffff !important; /* Neon cyan for links */
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+a:hover {
+    color: #ff00ff !important; /* Neon pink on hover */
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.7) !important;
+}
+
+/* Button styles */
+.btn, button {
+    background-color: #0000 !important;
+    border: 1px solid #00a2ff !important; /* Neon blue border */
+    color: #00a2ff !important; /* Neon blue text */
+    box-shadow: 0 0 10px rgba(0, 162, 255, 0.5) !important; /* Glow effect */
+    transition: all 0.3s ease !important;
+}
+
+.btn:hover, button:hover {
+    background-color: #0000 !important;
+    border-color: #ff00ff !important; /* Neon pink border on hover */
+    color: #ff00ff !important; /* Neon pink text on hover */
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7) !important; /* Enhanced glow effect */
+    transform: translateY(-2px) !important; /* Slight float effect */
+}
+
+/* Primary buttons */
+.btn-primary {
+    background-color: #00a2ff1a !important;
+    border-color: #00a2ff !important;
+    color: #00a2ff !important;
+    box-shadow: 0 0 10px rgba(0, 162, 255, 0.5) !important;
+}
+
+.btn-primary:hover {
+    background-color: #ff00ff1a !important;
+    border-color: #ff00ff !important;
+    color: #ff00ff !important;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7) !important;
+}
+
+/* Danger buttons */
+.btn-danger {
+    background-color: #ff00001a !important;
+    border-color: #ff0000 !important;
+    color: #ff0000 !important;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) !important;
+}
+
+.btn-danger:hover {
+    background-color: #ff33001a !important;
+    border-color: #ff3300 !important;
+    color: #ff3300 !important;
+    box-shadow: 0 0 15px rgba(255, 51, 0, 0.7) !important;
+}
+
+/* Success buttons */
+.btn-success {
+    background-color: #39ff141a !important;
+    border-color: #39ff14 !important;
+    color: #39ff14 !important;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5) !important;
+}
+
+.btn-success:hover {
+    background-color: #00ff881a !important;
+    border-color: #00ff88 !important;
+    color: #00ff88 !important;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.7) !important;
+}
+
+/* Navbar styling */
+nav, .navbar {
+    background-color: #0a0a0a !important; /* Slightly lighter than black */
+    border-bottom: 1px solid #00a2ff !important; /* Neon blue border */
+    box-shadow: 0 0 20px rgba(0, 162, 255, 0.5) !important; /* Blue glow */
+}
+
+.navbar .navbar-brand {
+    color: #39ff14 !important; /* Neon green text */
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.7) !important;
+}
+
+.navbar .nav-link {
+    color: #00a2ff !important; /* Neon blue text */
+    transition: all 0.3s ease !important;
+}
+
+.navbar .nav-link:hover {
+    color: #ff00ff !important; /* Neon pink on hover */
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.7) !important;
+}
+
+.navbar .nav-item.active .nav-link {
+    color: #39ff14 !important; /* Active link in neon green */
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.7) !important;
+}
+
+/* Card styling */
+.card {
+    background-color: #0a0a0a !important; /* Slightly lighter than black */
+    border: 1px solid #39ff14 !important; /* Neon green border */
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3) !important; /* Neon green glow */
+    transition: all 0.3s ease !important;
+}
+
+.card:hover {
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5) !important; /* Enhanced glow on hover */
+}
+
+.card-header {
+    background-color: #0a0a0a !important;
+    border-bottom: 1px solid #39ff14 !important;
+    color: #39ff14 !important;
+}
+
+.card-footer {
+    background-color: #0a0a0a !important;
+    border-top: 1px solid #39ff14 !important;
+}
+
+/* Table styling */
+table {
+    background-color: #0a0a0a !important;
+    color: #39ff14 !important;
+    border: 1px solid #39ff14 !important;
+}
+
+thead {
+    background-color: #0a0a0a !important;
+    border-bottom: 2px solid #00a2ff !important; /* Neon blue border */
+}
+
+tbody tr {
+    border-bottom: 1px solid #2a2a2a !important;
+    transition: all 0.3s ease !important;
+}
+
+tbody tr:hover {
+    background-color: #1a1a1a !important;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3) !important;
+}
+
+/* Input fields */
+input, select, textarea {
+    background-color: #121212 !important;
+    border: 1px solid #39ff14 !important;
+    color: #39ff14 !important;
+    box-shadow: 0 0 5px rgba(57, 255, 20, 0.3) !important;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #00a2ff !important;
+    box-shadow: 0 0 10px rgba(0, 162, 255, 0.5) !important;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    background-color: #0a0a0a !important;
+    border: 1px solid #39ff14 !important;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3) !important;
+}
+
+.dropdown-item {
+    color: #39ff14 !important;
+}
+
+.dropdown-item:hover {
+    background-color: #1a1a1a !important;
+    color: #ff00ff !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #39ff14;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.7);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00a2ff;
+    box-shadow: 0 0 8px rgba(0, 162, 255, 0.7);
+}
+
+/* Console/terminal styling */
+.terminal, pre, code {
+    background-color: #0a0a0a !important;
+    color: #39ff14 !important;
+    border: 1px solid #39ff14 !important;
+    font-family: 'Courier New', monospace !important;
+}
+
+/* Loading spinner with neon color */
+.spinner-border {
+    border-color: #39ff14 !important;
+    border-right-color: transparent !important;
+}
+
+/* Pagination controls */
+.pagination .page-link {
+    background-color: #0a0a0a !important;
+    border-color: #39ff14 !important;
+    color: #39ff14 !important;
+}
+
+.pagination .page-link:hover {
+    background-color: #1a1a1a !important;
+    color: #00a2ff !important;
+    box-shadow: 0 0 8px rgba(0, 162, 255, 0.7) !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #39ff141a !important;
+    border-color: #39ff14 !important;
+    color: #39ff14 !important;
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.7) !important;
+}
+
+/* Modal styling */
+.modal-content {
+    background-color: #0a0a0a !important;
+    border: 1px solid #39ff14 !important;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid #39ff14 !important;
+}
+
+.modal-footer {
+    border-top: 1px solid #39ff14 !important;
+}
+
+/* Alert styling */
+.alert {
+    background-color: #0a0a0a !important;
+    border: 1px solid !important;
+}
+
+.alert-success {
+    border-color: #39ff14 !important;
+    color: #39ff14 !important;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3) !important;
+}
+
+.alert-danger {
+    border-color: #ff0000 !important;
+    color: #ff0000 !important;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3) !important;
+}
+
+.alert-warning {
+    border-color: #ffff00 !important;
+    color: #ffff00 !important;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.3) !important;
+}
+
+.alert-info {
+    border-color: #00a2ff !important;
+    color: #00a2ff !important;
+    box-shadow: 0 0 10px rgba(0, 162, 255, 0.3) !important;
+}
+
+/* Toast notifications */
+.toast {
+    background-color: #0a0a0a !important;
+    border: 1px solid #39ff14 !important;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.5) !important;
+}
+
+.toast-header {
+    background-color: #0a0a0a !important;
+    border-bottom: 1px solid #39ff14 !important;
+    color: #39ff14 !important;
+}
+
+/* Badge styling */
+.badge {
+    background-color: #39ff141a !important;
+    color: #39ff14 !important;
+    border: 1px solid #39ff14 !important;
+}
+
+/* Progress bar styling */
+.progress {
+    background-color: #0a0a0a !important;
+    border: 1px solid #39ff14 !important;
+}
+
+.progress-bar {
+    background-color: #39ff14 !important;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.7) !important;
+}
