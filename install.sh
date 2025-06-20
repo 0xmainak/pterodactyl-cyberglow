@@ -5,7 +5,6 @@
 #
 # This script installs the neon theme to your Pterodactyl Panel installation
 
-# Exit if any command fails
 set -e
 
 # Configuration
@@ -13,71 +12,78 @@ PTERODACTYL_PATH="/var/www/pterodactyl"
 THEME_CSS_PATH="$PTERODACTYL_PATH/public/themes/neon.css"
 BASE_LAYOUT_PATH="$PTERODACTYL_PATH/resources/views/layouts/base.blade.php"
 
-# Color codes for output
-GREEN='\033[0;32m'
+# Color codes
+GREEN='\033[1;32m'
+CYAN='\033[1;36m'
+MAGENTA='\033[1;35m'
 YELLOW='\033[1;33m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+RED='\033[1;31m'
+NC='\033[0m'
 
-# Print banner
-echo -e "${GREEN}"
-echo "╔═════════════════════════════════════════╗"
-echo "║          Pterodactyl Neon Theme         ║"
-echo "║              Installer Script            ║"
-echo "╚═════════════════════════════════════════╝"
+# Banner
+echo -e "${CYAN}"
+echo "╔══════════════════════════════════════════════════════════╗"
+echo "║                                                          ║"
+echo "║        🌟 PTERODACTYL NEON THEME INSTALLER 🌟             ║"
+echo "║                                                          ║"
+echo "╚══════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 
-# Check if the script is run as root
+# Root check
 if [ "$EUID" -ne 0 ]; then
-  echo -e "${RED}Please run this script as root or with sudo.${NC}"
+  echo -e "${RED}[ERROR] Please run this script as root or with sudo.${NC}"
   exit 1
 fi
 
-# Check if Pterodactyl is installed
+# Pterodactyl check
 if [ ! -d "$PTERODACTYL_PATH" ]; then
-  echo -e "${RED}Pterodactyl installation not found at $PTERODACTYL_PATH${NC}"
-  echo -e "${YELLOW}Please update the PTERODACTYL_PATH variable in this script if your installation is in a different location.${NC}"
+  echo -e "${RED}[ERROR] Pterodactyl not found at $PTERODACTYL_PATH${NC}"
+  echo -e "${YELLOW}[INFO] Update PTERODACTYL_PATH in this script if needed.${NC}"
   exit 1
 fi
+echo -e "${GREEN}[OK] Pterodactyl found at $PTERODACTYL_PATH${NC}"
 
-echo -e "${GREEN}Pterodactyl installation found at $PTERODACTYL_PATH${NC}"
-
-# Create themes directory if it doesn't exist
+# Themes dir
 if [ ! -d "$PTERODACTYL_PATH/public/themes" ]; then
-  echo "Creating themes directory..."
+  echo -e "${MAGENTA}[INFO] Creating themes directory...${NC}"
   mkdir -p "$PTERODACTYL_PATH/public/themes"
 fi
 
-# Backup original base layout file
+# Backup
 if [ -f "$BASE_LAYOUT_PATH" ]; then
-  echo "Backing up original base layout file..."
-  cp "$BASE_LAYOUT_PATH" "$BASE_LAYOUT_PATH.backup.$(date +%Y%m%d%H%M%S)"
+  BACKUP_FILE="$BASE_LAYOUT_PATH.backup.$(date +%Y%m%d%H%M%S)"
+  echo -e "${MAGENTA}[INFO] Backing up base layout to $BACKUP_FILE${NC}"
+  cp "$BASE_LAYOUT_PATH" "$BACKUP_FILE"
 else
-  echo -e "${YELLOW}Warning: Base layout file not found. Will create a new one.${NC}"
+  echo -e "${YELLOW}[WARN] base.blade.php not found. Will create a new one.${NC}"
 fi
 
-# Copy theme files
-echo "Installing neon.css theme file..."
+# Install files
+echo -e "${MAGENTA}[INFO] Installing neon.css...${NC}"
 cp "$(dirname "$0")/neon.css" "$THEME_CSS_PATH"
 
-echo "Installing base.blade.php layout file..."
+echo -e "${MAGENTA}[INFO] Installing base.blade.php...${NC}"
 cp "$(dirname "$0")/base.blade.php" "$BASE_LAYOUT_PATH"
 
-# Fix permissions
-echo "Setting correct file permissions..."
+# Permissions
+echo -e "${MAGENTA}[INFO] Fixing permissions...${NC}"
 chown -R www-data:www-data "$THEME_CSS_PATH" "$BASE_LAYOUT_PATH"
 chmod 644 "$THEME_CSS_PATH" "$BASE_LAYOUT_PATH"
 
-# Clear view cache
-echo "Clearing Laravel view cache..."
+# Clear caches
+echo -e "${MAGENTA}[INFO] Clearing Laravel caches...${NC}"
 cd "$PTERODACTYL_PATH"
 php artisan view:clear
+php artisan cache:clear
+php artisan config:clear
 
+# Done
 echo -e "${GREEN}"
-echo "╔═════════════════════════════════════════╗"
-echo "║      Neon Theme Installation Complete    ║"
-echo "║                                          ║"
-echo "║  You may need to refresh your browser or ║"
-echo "║  clear your browser cache to see changes ║"
-echo "╚═════════════════════════════════════════╝"
+echo "╔══════════════════════════════════════════════════════════╗"
+echo "║                                                          ║"
+echo "║   ✅ Neon Theme Installed Successfully!                  ║"
+echo "║                                                          ║"
+echo "║   ℹ️  Refresh your browser or clear cache to see changes  ║"
+echo "║                                                          ║"
+echo "╚══════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
